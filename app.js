@@ -112,14 +112,31 @@
 
   // ---------- active tab on scroll ----------
   const ids = tabItems.map(([id]) => id);
+  let jumping = false;
+  let jumpTimer = 0;
+  function setActive(id) {
+    tabs.querySelectorAll("a").forEach((a) => a.classList.toggle("on", a.dataset.id === id));
+    const on = tabs.querySelector("a.on");
+    if (on) tabs.scrollLeft = on.offsetLeft - (tabs.clientWidth - on.offsetWidth) / 2;
+  }
+  // タブを押したら、JSで確実にその位置までスクロール（スクロール中はタブの自動切替を止める）
+  tabs.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a) return;
+    const el = document.getElementById(a.dataset.id);
+    if (!el) return;
+    e.preventDefault();
+    setActive(a.dataset.id);
+    jumping = true;
+    clearTimeout(jumpTimer);
+    jumpTimer = setTimeout(() => { jumping = false; }, 1200);
+    const top = el.getBoundingClientRect().top + window.scrollY - tabs.offsetHeight - 8;
+    window.scrollTo({ top, behavior: "smooth" });
+    history.replaceState(null, "", "#" + a.dataset.id);
+  });
   const io = new IntersectionObserver((entries) => {
-    entries.forEach((en) => {
-      if (en.isIntersecting) {
-        tabs.querySelectorAll("a").forEach((a) => a.classList.toggle("on", a.dataset.id === en.target.id));
-        const on = tabs.querySelector("a.on");
-        if (on) tabs.scrollTo({ left: on.offsetLeft - (tabs.clientWidth - on.offsetWidth) / 2 });
-      }
-    });
+    if (jumping) return;
+    entries.forEach((en) => { if (en.isIntersecting) setActive(en.target.id); });
   }, { rootMargin: "-40% 0px -55% 0px" });
   ids.forEach((id) => { const el = document.getElementById(id); if (el) io.observe(el); });
 
