@@ -12,7 +12,7 @@
   --shadow:0 1px 3px rgba(36,48,42,.08);
   --serif:"Shippori Mincho",serif;
   --sans:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;
-  --vi:"Be Vietnam Pro",sans-serif;
+  --vi:"Times New Roman",Times,"Noto Serif",serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
@@ -146,3 +146,4 @@ main{max-width:960px;margin:0 auto;padding:0 16px}
 .photos::-webkit-scrollbar{display:none}
 .photos img{flex:0 0 72%;max-width:260px;aspect-ratio:3/4;object-fit:cover;border-radius:10px;scroll-snap-align:start}
 .cards>*{min-width:0}
+[lang="vi"]{font-family:var(--vi)}
