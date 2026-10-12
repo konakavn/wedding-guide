@@ -3,118 +3,31 @@
 //  追加するときは同じ形で { } を1つ増やすだけ。
 //  vi: ベトナム語の店名（運転手に見せる用）、addr: 住所、q: Googleマップ検索語（省略時は vi + addr）
 // ===========================================================
-window.CITIES = [
-  {
-    id: "longxuyen",
-    name: "ロンスエン",
-    vi: "Long Xuyên",
-    lead: "式の会場（新婦の実家）があるアンザン省の中心都市。会場まではロンスエン市街から車で約40分。ホテルは市の中心部に集まっていて、カフェや食堂へは歩いて行ける距離です。",
-    note: "10月はちょうど「雨季の増水期（mùa nước nổi）」。小魚のカーリン（cá linh）と黄色い花ディエンディエン（bông điên điển）が旬で、この時期だけの味です。\n「徒歩5分」などはホテル街（Dong Xuyen／Lara／Chau Khuong 周辺）からの目安です。",
-    spots: [
-      // --- ホテル ---
-      { cat: "hotel", name: "マリーナプラザ・ホテル", vi: "Marina Plaza Hotel Long Xuyên", addr: "Long Xuyên, An Giang", tag: "宿泊先", desc: "ゲストの宿泊先のひとつ。帰り道に迷ったら「運転手に見せる」でホテル名を見せてください。" },
-      { cat: "hotel", name: "ドンスエン・ホテル", vi: "Đông Xuyên Hotel", addr: "9A Lương Văn Cự, P. Mỹ Long, Long Xuyên", tag: "宿泊先", desc: "市中心部の老舗ホテル。アンザン省観光公社系。" },
-      { cat: "hotel", name: "ララ・ホテル", vi: "Lara Hotel Long Xuyên", addr: "46-48 Hùng Vương, P. Mỹ Phước, Long Xuyên", tag: "宿泊先", desc: "3つ星・49室。中心部の目抜き通り沿い。" },
-      { cat: "hotel", name: "チャウクオン・ホテル", vi: "Châu Khương Hotel", addr: "Số 2 Hà Hoàng Hổ, P. Mỹ Xuyên, Long Xuyên", tag: "宿泊先", desc: "3つ星。レストラン・カフェ併設。" },
+window.CITIES = [];  // 各地の観光情報（いったん空にしています）
 
-      // --- 一品料理（朝・昼） ---
-      { cat: "eat", name: "ブンカー・フォンフォン", vi: "Bún cá Bún cua Phương Phương", addr: "Long Xuyên", tag: "徒歩5分", desc: "アンザン名物、ターメリックで黄色い魚だしの米麺「ブンカー」の人気店。朝〜昼に。" },
-      { cat: "eat", name: "コムタム・カイディエップ", vi: "Cơm Tấm Cây Điệp", addr: "67 Lý Tự Trọng, P. Mỹ Long, Long Xuyên", tag: "徒歩5分・早朝", desc: "地元の朝ごはんの定番。7時頃までに行くのがおすすめ。1皿 25,000〜30,000₫（約150〜180円）。ロンスエン式は具が細かく、甘めのタレで軽い。" },
-      { cat: "eat", name: "コムタム・オンコイ・ジエウ", vi: "Cơm Tấm Ống Khói Diệu", addr: "200/4 Đặng Dung, Long Xuyên", tag: "徒歩5分", desc: "炭火で焼いた豚スペアリブが香ばしい、評判のコムタム専門店。朝に。" },
-      { cat: "eat", name: "コムタム・フインロン", vi: "Quán Cơm Tấm Huỳnh Long", addr: "117 Trần Nguyên Hãn, Long Xuyên", tag: "徒歩5分", desc: "コムタムの人気店。朝〜昼に。" },
-      { cat: "eat", name: "フーティウ・ミー・バーカム", vi: "Quán Hủ Tiếu Mỳ Ba Cam", addr: "3 Nguyễn Thái Học, Long Xuyên", tag: "車で5分", desc: "伝統的なフーティウ（あっさり豚骨だしの米麺）の名店。朝に。" },
-      { cat: "eat", name: "フーティウ・ミー・ザーバオ2", vi: "Hủ tiếu mỳ Gia Bảo 2", addr: "Long Xuyên", tag: "徒歩5分", desc: "地元で人気のフーティウ・ミー専門店。朝〜昼に。" },
-      { cat: "eat", name: "カーリン魚の甘酸っぱいスープ", vi: "Canh chua cá linh", addr: "", tag: "今が旬", desc: "増水期だけ獲れる小魚カーリンをタマリンドで煮た酸っぱいスープ。食堂でこの画面を見せて聞いてみて。" },
+// ===========================================================
+//  住所（式場・ホテル）
+//  map: Googleマップの共有リンク（なければ vi + addr で検索）
+// ===========================================================
+window.VENUE = {
+  name: "結婚式会場（チャムの家）",
+  vi: "",     // ← ベトナム語の住所表記（運転手に見せる用）を入れる
+  addr: "",   // ← 住所を入れる
+  map: "",    // ← Googleマップの共有リンクを入れる
+  desc: "ロンスエン市街から車で約40分。式は10/18(日) 早朝から始まります。",
+};
 
-      // --- レストラン（鍋・大皿） ---
-      { cat: "dinner", name: "ラウ・チャウ・キエウトゥ（水牛鍋）", vi: "Lẩu Trâu Kiều Tứ", addr: "122 Phó Đức Chính, P. Bình Khánh, Long Xuyên", tag: "車で15分", desc: "地元で評判の水牛肉のしゃぶしゃぶ鍋。ボリューム満点。鍋 120,000₫〜（約720円〜）、肉皿 80,000₫〜（約480円〜）。" },
-      { cat: "dinner", name: "クアン・オック・ヴイ（貝料理）", vi: "Quán Ốc Vui", addr: "Long Xuyên", tag: "車で10分", desc: "貝料理（オック）中心のにぎやかな屋台風レストラン。夜のビールのお供に。" },
-      { cat: "dinner", name: "クアン・アン・タイ・ソンハウ", vi: "Quán Ăn Tây Sông Hậu", addr: "Long Xuyên", tag: "車で5分", desc: "ハウ川沿いの食堂。地元の家庭料理が楽しめる。昼・夜。" },
-      { cat: "dinner", name: "土鍋ごはん タムニエン", vi: "Nhà Hàng Cơm Niêu Tâm Nhiên", addr: "Long Xuyên", tag: "徒歩15分", desc: "土鍋で炊いたおこげご飯（コムニウ）が名物。宴会・グループ利用にも。" },
-      { cat: "dinner", name: "ラウマム（発酵魚の鍋）", vi: "Lẩu mắm", addr: "", tag: "メコン名物", desc: "魚の発酵調味料マムで煮る、メコンデルタを代表する鍋。クセはあるけど野草と食べるとやみつきに。お店の人にこの画面を見せて。" },
-
-      // --- カフェ ---
-      { cat: "cafe", name: "カフェ・ヴォット・ハイガウ", vi: "Cà phê vợt Hai Ngầu", addr: "Cầu Ông Mạnh, Long Xuyên", tag: "車で5分・早朝", desc: "ロンスエン最古と言われる、布で濾す「ヴォット式」コーヒーの老舗。早朝がおすすめ。" },
-      { cat: "cafe", name: "ニャーコー・コーヒー", vi: "Nhà Kho Coffee", addr: "Lý Thái Tổ, P. Đông Xuyên, Long Xuyên", tag: "車で10分", desc: "ホーチミン／ハノイ風のモダンな内装。広々として人気。" },
-      { cat: "cafe", name: "カイマン・コーヒー", vi: "Cây Mận Coffee", addr: "161 Nguyễn Du, P. Mỹ Bình, Long Xuyên", tag: "Grabで5〜10分", desc: "緑に囲まれた木造カフェ。看板メニューは梅茶（trà mận）。静かで落ち着く。" },
-      { cat: "cafe", name: "ミア・マイア", vi: "Mia Maia café & savoury", addr: "Long Xuyên", tag: "徒歩20分", desc: "写真映えする可愛い内装のカフェ・軽食店。" },
-      { cat: "cafe", name: "メック・コーヒー", vi: "Méc Coffee", addr: "Long Xuyên", tag: "車で10分", desc: "地元で人気のおしゃれなカフェ。ゆっくり過ごせる。" },
-      { cat: "cafe", name: "メルシー・コーヒー", vi: "Merci Coffee", addr: "Long Xuyên", tag: "車で10分", desc: "新しくできたカフェ。ドリンクメニューが豊富。" },
-      { cat: "cafe", name: "ゴールデン・コーヒー", vi: "Golden Coffee", addr: "Phố đi bộ Long Xuyên", tag: "徒歩5分", desc: "歩行者天国近くの人気カフェ（営業状況は行く前に確認を）。" },
-      { cat: "cafe", name: "エスメコン・カフェ", vi: "S'Mekon caffé", addr: "Long Xuyên", tag: "車で10分", desc: "メコン川をイメージした落ち着いた雰囲気のカフェ。" },
-      { cat: "cafe", name: "スターバックス", vi: "Starbucks Ngô Gia Tự", addr: "Ngô Gia Tự, Long Xuyên", tag: "徒歩10分", desc: "慣れた味でひと休みしたい時に。" },
-      { cat: "cafe", name: "カラ・デ・カフェ", vi: "CARA De CAFÉ", addr: "Long Xuyên", tag: "徒歩5分", desc: "市中心部の落ち着いたカフェ。" },
-
-      // --- 観光 ---
-      { cat: "see", name: "ロンスエン大聖堂", vi: "Nhà thờ Chánh tòa Long Xuyên", addr: "9 Nguyễn Huệ, Long Xuyên", tag: "徒歩5分", desc: "ホテル街のすぐそば。高い鐘楼が目印の、独特な建築が美しい大聖堂。" },
-      { cat: "see", name: "グエンズー湖と恋人橋", vi: "Hồ Nguyễn Du – Cầu Tình yêu", addr: "P. Mỹ Bình, Long Xuyên", tag: "車で10分・夜", desc: "全長約350mの静かな湖。遊歩道があり散策にぴったり。湖にかかる「恋人橋」は夜ライトアップされる撮影スポット。" },
-      { cat: "see", name: "北帝廟", vi: "Chùa Ông Bắc", addr: "Long Xuyên", tag: "徒歩10分", desc: "100年以上の歴史をもつ中華系（広東系）寺院。" },
-      { cat: "see", name: "アンザン省博物館", vi: "Bảo tàng An Giang", addr: "Long Xuyên", tag: "車で5分", desc: "オケオ文化（扶南）の遺物など22,000点以上を収蔵。雨の日にも。" },
-      { cat: "see", name: "ロンスエン水上マーケット", vi: "Chợ nổi Long Xuyên", addr: "Sông Hậu, Long Xuyên", tag: "早朝5〜7時", desc: "早朝の川船マーケット。観光化されておらず素朴。ボートは個人交渉で、10人乗り1隻 500,000₫（約3,000円）ほど。乗船場までホテルから徒歩10分。" },
-      { cat: "see", name: "トンドゥックタン記念区（オンホー島）", vi: "Khu lưu niệm Chủ tịch Tôn Đức Thắng (Cù lao Ông Hổ)", addr: "Cù lao Ông Hổ, Mỹ Hòa Hưng", tag: "渡し船＋車で30分", desc: "南北統一後のベトナム社会主義共和国・初代国家主席トンドゥックタンの生家を含む記念施設。中洲の島ののどかな村道も歩けます。" },
-      { cat: "see", name: "歩行者天国", vi: "Phố Đi Bộ Long Xuyên", addr: "Long Xuyên", tag: "徒歩10分・週末夜", desc: "週末の夜に開かれる歩行者天国。屋台やイベントでにぎわいます。" },
-      { cat: "see", name: "【足をのばすなら】チャウドック・サム山", vi: "Miếu Bà Chúa Xứ Núi Sam, Châu Đốc", addr: "Châu Đốc", tag: "車で約1.5時間", desc: "カンボジア国境近くの街。信仰を集めるバーチュアスー廟と、山頂からの国境の眺め。チャウドック市場のマム（発酵魚）は有名なお土産。" },
-      { cat: "see", name: "【足をのばすなら】チャースー・カユプテ林", vi: "Rừng tràm Trà Sư", addr: "Tịnh Biên", tag: "10月がベスト", desc: "水没した森を小舟で進む名所。増水期の今が一番きれいな時期です。" },
-
-      // --- 買い物 ---
-      { cat: "shop", name: "ロンスエン市場", vi: "Chợ Long Xuyên", addr: "Long Xuyên", tag: "徒歩15分", desc: "地元の生活を感じられる市場。食材からお土産まで。" },
-      { cat: "shop", name: "ヴィンコム・プラザ", vi: "Vincom Plaza Long Xuyên", addr: "Long Xuyên", tag: "徒歩10分", desc: "冷房の効いたショッピングモール。買い物・食事に便利。" },
-      { cat: "shop", name: "コープマート", vi: "Co.opmart Long Xuyên", addr: "Long Xuyên", tag: "徒歩5分", desc: "スーパーマーケット。飲み物やばらまき土産の調達に。" },
-      { cat: "shop", name: "パームシュガー／バインボー・トットノット", vi: "Đường thốt nốt / Bánh bò thốt nốt", addr: "", tag: "お土産", desc: "アンザン名物のヤシ砂糖と、それを使った黄色い蒸しパン（1袋 20,000〜40,000₫）。市場やスーパーで。" },
-    ],
-  },
-  {
-    id: "cantho",
-    name: "カントー",
-    vi: "Cần Thơ",
-    lead: "メコンデルタ最大の都市。カントーから式の会場までは車で約2時間、ロンスエン市街までも約2時間。前後泊するならここが便利。",
-    note: "水上市場は早起き勝負。前日の夜にホテルで船を予約しておくとスムーズです。",
-    spots: [
-      { cat: "hotel", name: "ビクトリア・カントー・リゾート", vi: "Victoria Cần Thơ Resort", addr: "Cái Khế, Ninh Kiều, Cần Thơ", tag: "宿泊先", desc: "ゲストの宿泊先のひとつ。川沿いのコロニアル風リゾート。" },
-      { cat: "hotel", name: "ウインクホテル・カントー", vi: "Wink Hotel Can Tho", addr: "Ninh Kiều, Cần Thơ", tag: "宿泊先", desc: "ゲストの宿泊先のひとつ。" },
-      { cat: "see", name: "カイラン水上市場", vi: "Chợ nổi Cái Răng", addr: "Cái Răng, Cần Thơ", tag: "朝5時台に出発", desc: "メコン最大級の水上市場。ニンキウ埠頭から船で約40分〜1時間。にぎわうのは6〜7時台。米麺工場や果樹園も回るツアーもあり。週末は混むので平日が◎。" },
-      { cat: "see", name: "ニンキウ埠頭・歩道橋", vi: "Bến Ninh Kiều", addr: "Hai Bà Trưng, Ninh Kiều, Cần Thơ", tag: "夜がきれい", desc: "カントーの顔。夜はライトアップされた歩道橋と川風が気持ちいい。近くにタイドー夜市（17:00〜23:00）も。" },
-      { cat: "see", name: "ディナークルーズ", vi: "Du thuyền Bến Ninh Kiều", addr: "Bến Ninh Kiều, Cần Thơ", tag: "夜", desc: "ニンキウ埠頭発。南部料理と伝統音楽ドンカータイトゥーを楽しみながら川をめぐる。平日は1便、週末は2便。" },
-      { cat: "see", name: "ビントゥイ古民家", vi: "Nhà cổ Bình Thủy", addr: "144 Bùi Hữu Nghĩa, Bình Thủy, Cần Thơ", tag: "映画のロケ地", desc: "19世紀末のフランス×ベトナム折衷の邸宅。映画『愛人／ラマン』のロケ地としても知られます。" },
-      { cat: "eat", name: "フーティウ（ハウファット）", vi: "Mì Hậu Phát", addr: "19 Phạm Ngũ Lão, Cần Thơ", tag: "朝ごはん", desc: "南部の米麺フーティウとワンタン麺。水上市場帰りの朝食に。6:00〜22:00。" },
-      { cat: "eat", name: "ブンマム173", vi: "Bún mắm 173", addr: "594 đường 30/4, Cần Thơ", tag: "メコン名物", desc: "発酵魚スープの麺ブンマム。濃厚でうまみたっぷり。7:00〜21:00。" },
-      { cat: "eat", name: "瓦焼き牛（クーラン）", vi: "Cù Lần – Bò nướng ngói", addr: "88/19A Đề Thám, Cần Thơ", tag: "グループ向け", desc: "熱した瓦の上で牛肉を焼くスタイル。夕方15:00〜。ビールが進む。" },
-      { cat: "eat", name: "ホイドー（南部の家庭料理）", vi: "Hồi Đó", addr: "54 Trần Bình Trọng, Cần Thơ", tag: "家庭料理", desc: "昔ながらのメコンの家庭料理とチェー（甘味）。落ち着いた雰囲気で家族連れにも。" },
-      { cat: "eat", name: "チートイ", vi: "Chị Tôi", addr: "27-29 Lê Lợi, Cần Thơ", tag: "家庭料理", desc: "揚げ豆腐、カエル炒め、おこげとコークエット（干しエビの濃いタレ）など南部の味。" },
-      { cat: "eat", name: "スイカオ・アーチャイ", vi: "Sủi cảo A Chảy", addr: "38 Nguyễn An Ninh, Cần Thơ", tag: "軽食", desc: "華人系の水餃子・カニスープ。サクッと食べたいときに。" },
-    ],
-  },
-  {
-    id: "hcmc",
-    name: "ホーチミン",
-    vi: "TP. Hồ Chí Minh",
-    lead: "日本からの玄関口。新郎が学生時代を過ごした街です。帰国便が夜なら、半日でも楽しめます。",
-    note: "2025年の行政区再編で「1区」などの区名が廃止され、住所表記が「○○坊（phường）」に変わりつつあります。運転手には店名＋旧住所を見せればたいてい通じます。",
-    spots: [
-      { cat: "see", name: "ベンタイン市場", vi: "Chợ Bến Thành", addr: "Lê Lợi, Bến Thành, TP.HCM", tag: "定番", desc: "お土産探しの定番。値段は交渉制。夜は周辺に屋台が出ます。" },
-      { cat: "see", name: "統一会堂（旧大統領官邸）", vi: "Dinh Độc Lập", addr: "135 Nam Kỳ Khởi Nghĩa, TP.HCM", tag: "歴史", desc: "1975年4月30日、戦車が門を突破した場所。60年代の内装がそのまま残っています。" },
-      { cat: "see", name: "戦争証跡博物館", vi: "Bảo tàng Chứng tích Chiến tranh", addr: "28 Võ Văn Tần, TP.HCM", tag: "歴史", desc: "ベトナム戦争の記録。重い内容ですが、一度は見ておきたい場所。" },
-      { cat: "see", name: "中央郵便局・聖母マリア教会", vi: "Bưu điện Thành phố / Nhà thờ Đức Bà", addr: "2 Công xã Paris, TP.HCM", tag: "写真映え", desc: "フランス統治時代の建築が並ぶエリア。大聖堂は修復工事中のため、内部見学は事前に確認を。" },
-      { cat: "see", name: "グエンフエ歩行者通り", vi: "Phố đi bộ Nguyễn Huệ", addr: "Nguyễn Huệ, TP.HCM", tag: "夜", desc: "夜に地元の若者でにぎわう広場。脇のアパート（42 Nguyễn Huệ）は中に小さなカフェがぎっしり。" },
-      { cat: "see", name: "ビンタイ市場（チョロン）", vi: "Chợ Bình Tây", addr: "57A Tháp Mười, Chợ Lớn, TP.HCM", tag: "ローカル", desc: "華人街チョロンの卸売市場。ベンタインより地元感が強い。" },
-      { cat: "see", name: "地下鉄1号線", vi: "Metro số 1 (Bến Thành – Suối Tiên)", addr: "Ga Bến Thành, TP.HCM", tag: "乗ってみる", desc: "2024年末に開業したホーチミン初の都市鉄道。ベンタイン駅から高架区間へ、乗るだけでも街が見渡せます。" },
-      { cat: "eat", name: "バインミー・フィンホア", vi: "Bánh mì Huỳnh Hoa", addr: "26 Lê Thị Riêng, TP.HCM", tag: "定番", desc: "具がぎっしり詰まった、サイゴンで一番有名なバインミー。行列でも回転は早い。" },
-      { cat: "eat", name: "フォー・ホア・パスター", vi: "Phở Hòa Pasteur", addr: "260C Pasteur, TP.HCM", tag: "朝ごはん", desc: "南部スタイルの老舗フォー。ハーブをたっぷりのせて。" },
-      { cat: "eat", name: "コムタム・バーギエン", vi: "Cơm tấm Ba Ghiền", addr: "84 Đặng Văn Ngữ, Phú Nhuận, TP.HCM", tag: "名物", desc: "顔より大きい焼き豚がのるサイゴン式コムタム。ロンスエン式と食べ比べてみて。" },
-      { cat: "eat", name: "バインセオ46A", vi: "Bánh xèo 46A Đinh Công Tráng", addr: "46A Đinh Công Tráng, Tân Định, TP.HCM", tag: "名物", desc: "パリパリの大きなベトナム風お好み焼き。葉野菜で包んでヌックマムにつけて。" },
-      { cat: "eat", name: "クックガック・クアン", vi: "Cục Gạch Quán", addr: "10 Đặng Tất, Tân Định, TP.HCM", tag: "ディナー", desc: "古民家を改装した、雰囲気のいいベトナム家庭料理レストラン。予約がおすすめ。" },
-      { cat: "eat", name: "ヴィンカイン通り（タニシ屋台街）", vi: "Phố ẩm thực Vĩnh Khánh", addr: "Vĩnh Khánh, Quận 4 (cũ), TP.HCM", tag: "夜・屋台", desc: "貝・タニシ料理の屋台がずらりと並ぶ通り。ビール片手にローカルな夜を。" },
-    ],
-  },
+window.HOTELS = [
+  { name: "マリーナプラザ・ホテル", vi: "Marina Plaza Hotel Long Xuyên", addr: "Long Xuyên, An Giang", map: "", desc: "ロンスエン市内" },
+  { name: "ドンスエン・ホテル", vi: "Đông Xuyên Hotel", addr: "9A Lương Văn Cự, P. Mỹ Long, Long Xuyên, An Giang", map: "https://maps.app.goo.gl/7QnnNLstMvTimxia9", desc: "市中心部の老舗ホテル" },
+  { name: "ララ・ホテル", vi: "Lara Hotel Long Xuyên", addr: "46-48 Hùng Vương, P. Mỹ Phước, Long Xuyên, An Giang", map: "https://maps.app.goo.gl/GUpozvdLLK3ySD5N6", desc: "中心部の目抜き通り沿い" },
+  { name: "チャウクオン・ホテル", vi: "Châu Khương Hotel", addr: "Số 2 Hà Hoàng Hổ, P. Mỹ Xuyên, Long Xuyên, An Giang", map: "https://maps.app.goo.gl/5DKSn6KsuLFsbszk6", desc: "レストラン・カフェ併設" },
 ];
 
 // ===========================================================
 //  全体の流れ（名前は載せない）
 // ===========================================================
 window.SCHEDULE = [
-  { d: "10/15(木)〜16(金)", t: "各自", what: "現地入り（カントー／ホーチミン経由など）", where: "カントー他" },
-  { d: "10/17(土)", t: "午前", what: "カントー組は会場（新婦の実家）へタクシー移動（約2時間）", where: "カントー → 会場" },
-  { d: "10/17(土)", t: "午後", what: "顔合わせ・食事・カラオケなど", where: "会場" },
   { d: "10/17(土)", t: "夜", what: "宿泊：会場近くのホテル、またはロンスエン市内のホテル", where: "会場近く／ロンスエン" },
   { d: "10/18(日)", t: "早朝〜昼過ぎ", what: "結婚式", where: "会場", main: true },
   { d: "10/18(日)", t: "式のあと", what: "カントー／ホーチミン／チャウドックへ移動する方も", where: "各方面" },

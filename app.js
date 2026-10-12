@@ -1,6 +1,6 @@
 (function () {
   const CFG = window.SITE_CONFIG || {};
-  const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", hotel: "🏨 ホテル" };
+  const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", hotel: "🏨 ホテル", venue: "💒 式場" };
   const CAT_ORDER = Object.keys(CAT);
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -8,7 +8,7 @@
 
   // ---------- tabs ----------
   const tabs = $("#tabs");
-  const tabItems = [["schedule", "日程"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["picks", "みんなの"], ["tips", "ヒント"]];
+  const tabItems = [["schedule", "日程"], ["address", "住所"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["picks", "みんなの"], ["tips", "ヒント"]];
   tabs.innerHTML = tabItems.map(([id, label]) => `<a href="#${id}" data-id="${id}">${label}</a>`).join("");
 
   // ---------- cities ----------
@@ -54,6 +54,13 @@
       });
     });
   });
+
+  // ---------- address ----------
+  const V = window.VENUE || {};
+  $("#venue").innerHTML = (V.addr || V.map)
+    ? cardHTML({ cat: "venue", tag: "10/18", name: V.name, vi: V.vi, addr: V.addr, map: V.map, desc: V.desc, q: V.vi || V.addr })
+    : `<article class="card"><div class="card-top"><span class="cat">${CAT.venue}</span><span class="tag">10/18</span></div><h3>${esc(V.name)}</h3><p class="desc">${esc(V.desc)}\n住所・地図は準備中です。</p></article>`;
+  $("#hotels").innerHTML = (window.HOTELS || []).map((h) => cardHTML({ cat: "hotel", ...h })).join("");
 
   // ---------- routes / tips / phrases ----------
   $("#routes").innerHTML = window.ROUTES.map((r) => `<div class="route">
@@ -120,6 +127,11 @@
   if (CFG.FORM_URL) formBtn.href = CFG.FORM_URL;
   else { formBtn.classList.add("is-disabled"); formBtn.textContent = "投稿フォーム準備中"; }
 
+  const PICK_CITIES = [
+    { id: "longxuyen", name: "ロンスエン", vi: "Long Xuyên" },
+    { id: "cantho", name: "カントー", vi: "Cần Thơ" },
+    { id: "hcmc", name: "ホーチミン", vi: "Hồ Chí Minh" },
+  ];
   const list = $("#pickList");
   const filter = $("#pickFilter");
   let picks = [];
@@ -144,7 +156,7 @@
   const findCol = (head, words) => head.findIndex((h) => words.some((w) => h.includes(w)));
   function cityOf(v) {
     v = v || "";
-    for (const c of window.CITIES) if (v.includes(c.name) || v.toLowerCase().includes(c.vi.toLowerCase())) return c.id;
+    for (const c of PICK_CITIES) if (v.includes(c.name) || v.toLowerCase().includes(c.vi.toLowerCase())) return c.id;
     if (/チャウドック|châu đốc/i.test(v)) return "longxuyen";
     return "other";
   }
@@ -173,7 +185,7 @@
   }
 
   function renderFilter() {
-    const opts = [["all", "すべて"], ...window.CITIES.map((c) => [c.id, c.name]), ["other", "その他"]];
+    const opts = [["all", "すべて"], ...PICK_CITIES.map((c) => [c.id, c.name]), ["other", "その他"]];
     filter.innerHTML = opts.map(([id, l]) => `<button class="chip${id === current ? " on" : ""}" data-f="${id}" type="button">${l}</button>`).join("");
   }
   filter.addEventListener("click", (e) => {
@@ -200,7 +212,7 @@
       const get = (r, k) => (col[k] >= 0 ? (r[col[k]] || "").trim() : "");
       picks = rows.map((r) => {
         const city = cityOf(get(r, "city"));
-        const c = window.CITIES.find((x) => x.id === city);
+        const c = PICK_CITIES.find((x) => x.id === city);
         return { by: get(r, "by"), city, cityName: c ? c.name : (get(r, "city") || "その他"), cityVi: c ? c.vi : "",
           cat: catOf(get(r, "cat")), place: get(r, "place"), addr: get(r, "addr"), comment: get(r, "comment") };
       }).filter((p) => p.place).reverse();
