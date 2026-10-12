@@ -135,11 +135,10 @@ main{max-width:960px;margin:0 auto;padding:0 16px}
 .money div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
 .money b{display:block;font-family:var(--vi);color:var(--green)}
 .money span{font-size:.85rem;color:var(--muted)}
-/* dishes */
-.dishes{display:grid;gap:10px}
-@media (min-width:680px){.dishes{grid-template-columns:1fr 1fr}}
-.dish{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
-.dish-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.dish-ja{font-size:.85rem;color:var(--muted)}
-.dish p{margin:4px 0;font-size:.9rem}
-.dish .dish-p{color:var(--lotus);font-weight:700;font-size:.85rem}
+.p-group{font-family:var(--serif);font-size:1rem;margin:20px 0 8px;color:var(--green)}
+.phrases{grid-template-columns:1fr 1fr;gap:6px}
+@media (min-width:680px){.phrases{grid-template-columns:1fr 1fr 1fr}}
+.phrase{padding:8px 10px;border-radius:10px;line-height:1.5}
+.phrase .p-ja{font-size:.78rem;color:var(--muted)}
+.phrase .p-vi{font-size:.95rem}
+.phrase .p-yomi{font-size:.72rem}

@@ -8,7 +8,7 @@
 
   // ---------- tabs ----------
   const tabs = $("#tabs");
-  const tabItems = [["schedule", "日程"], ["address", "住所"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["picks", "みんなの"], ["tips", "ヒント"]];
+  const tabItems = [["schedule", "日程"], ["address", "住所"], ["tips", "ヒント"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["picks", "みんなの"]];
   tabs.innerHTML = tabItems.map(([id, label]) => `<a href="#${id}" data-id="${id}">${label}</a>`).join("");
 
   // ---------- cities ----------
@@ -70,9 +70,11 @@
     <p>${esc(r.tip)}</p></div>`).join("");
   $("#schedList").innerHTML = window.SCHEDULE.map((r) => `<li class="${r.main ? "main" : ""}"><span class="s-d">${esc(r.d)}</span><span class="s-t">${esc(r.t)}</span><span class="s-w">${esc(r.what)}${r.where ? `<small>${esc(r.where)}</small>` : ""}</span></li>`).join("");
   $("#money").innerHTML = window.MONEY.map(([v, j]) => `<div><b lang="vi">${v}</b><span>約${j}</span></div>`).join("");
-  $("#dishList").innerHTML = window.DISHES.map((x) => `<div class="dish"><div class="dish-head"><span class="p-vi" lang="vi">${esc(x.vi)}</span><span class="dish-ja">${esc(x.ja)}</span></div><p>${esc(x.d)}</p><p class="dish-p">${esc(x.p)}</p><button class="link-btn js-driver" type="button" data-name="${esc(x.vi)}" data-addr="" data-hint="eat" data-q="${esc(x.vi)} Long Xuyên">お店の人に見せる</button></div>`).join("");
   $("#tipList").innerHTML = window.TIPS.map((t) => `<div class="tip"><b>${esc(t.t)}</b><p>${esc(t.d)}</p></div>`).join("");
-  $("#phraseList").innerHTML = window.PHRASES.map((p) => `<div class="phrase"><div class="p-ja">${esc(p.ja)}</div><div class="p-vi" lang="vi">${esc(p.vi)}</div><div class="p-yomi">${esc(p.yomi)}</div></div>`).join("");
+  const groups = [...new Set(window.PHRASES.map((p) => p.g))];
+  $("#phraseList").innerHTML = groups.map((g) => `<h4 class="p-group">${esc(g)}</h4><div class="phrases">${
+    window.PHRASES.filter((p) => p.g === g).map((p) => `<div class="phrase"><div class="p-ja">${esc(p.ja)}</div><div class="p-vi" lang="vi">${esc(p.vi)}</div><div class="p-yomi">${esc(p.yomi)}</div></div>`).join("")
+  }</div>`).join("");
 
   // ---------- driver modal / copy ----------
   const dlg = $("#driver");
