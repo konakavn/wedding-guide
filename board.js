@@ -3,7 +3,7 @@
 //  保存先：Google Apps Script ウェブアプリ（gas/Code.gs）
 // ===========================================================
 (function () {
-  const BOARD_URL = ""; // ← Apps Script の「ウェブアプリのURL」
+  const BOARD_URL = "https://script.google.com/macros/s/AKfycbzVQRfQYV_mmZPmL2y0lr6M6mvgX_IvQr2m8xk9RGP970qiYXbiSbukpUwuUUasktzt/exec";
 
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
