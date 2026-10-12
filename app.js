@@ -1,6 +1,6 @@
 (function () {
   const CFG = window.SITE_CONFIG || {};
-  const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", hotel: "🏨 ホテル", venue: "💒 式場" };
+  const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", hotel: "🏨 ホテル", venue: "💒 式場", bus: "🚌 バス" };
   const CAT_ORDER = Object.keys(CAT);
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -61,6 +61,7 @@
     ? cardHTML({ cat: "venue", tag: "10/18", name: V.name, vi: V.vi, addr: V.addr, map: V.map, desc: V.desc, q: V.vi || V.addr })
     : `<article class="card"><div class="card-top"><span class="cat">${CAT.venue}</span><span class="tag">10/18</span></div><h3>${esc(V.name)}</h3><p class="desc">${esc(V.desc)}\n住所・地図は準備中です。</p></article>`;
   $("#hotels").innerHTML = (window.HOTELS || []).map((h) => cardHTML({ cat: "hotel", ...h })).join("");
+  $("#bus").innerHTML = (window.BUS || []).map((h) => cardHTML({ cat: "bus", ...h })).join("");
 
   // ---------- routes / tips / phrases ----------
   $("#routes").innerHTML = window.ROUTES.map((r) => `<div class="route">
@@ -116,7 +117,7 @@
       if (en.isIntersecting) {
         tabs.querySelectorAll("a").forEach((a) => a.classList.toggle("on", a.dataset.id === en.target.id));
         const on = tabs.querySelector("a.on");
-        if (on) on.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+        if (on) tabs.scrollTo({ left: on.offsetLeft - (tabs.clientWidth - on.offsetWidth) / 2 });
       }
     });
   }, { rootMargin: "-40% 0px -55% 0px" });
