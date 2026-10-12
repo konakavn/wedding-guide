@@ -17,6 +17,11 @@ window.CITIES = [
         desc: "歩道に机を並べたローカルなコムタム屋台。写真は焼いた豚肉と煮卵のせ。Googleマップに店の情報はないので、「地図」の位置を目印に。\n\nメニュー：Cơm tấm 25K／Cơm sườn 30K／Tấm sườn 30K／Ba rọi（豚バラ）35K／Sườn cọng（骨付きスペアリブ）45K／Cơm gà（鶏）40K\n電話：0948 893 400",
         photos: ["img/7tinh-1.jpg", "img/7tinh-2.jpg", "img/7tinh-3.jpg"],
       },
+      {
+        cat: "shop", name: "コープマート", vi: "Co.opmart Long Xuyên", addr: "Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/nJpL57w9DDupxDVX6", tag: "スーパー",
+        desc: "広くて綺麗なスーパーマーケット。飲み物やお菓子、ばらまき用のお土産をまとめて買うのに便利。",
+      },
     ],
   },
 ];
