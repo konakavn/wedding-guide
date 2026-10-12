@@ -1,5 +1,4 @@
 (function () {
-  const CFG = window.SITE_CONFIG || {};
   const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", hotel: "🏨 ホテル", venue: "💒 式場", bus: "🚌 バス" };
   const CAT_ORDER = Object.keys(CAT);
   const $ = (s, r = document) => r.querySelector(s);
@@ -8,7 +7,7 @@
 
   // ---------- tabs ----------
   const tabs = $("#tabs");
-  const tabItems = [["schedule", "日程"], ["address", "住所"], ["tips", "ヒント"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["picks", "みんなの"]];
+  const tabItems = [["schedule", "日程"], ["address", "住所"], ["tips", "ヒント"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"]];
   tabs.innerHTML = tabItems.map(([id, label]) => `<a href="#${id}" data-id="${id}">${label}</a>`).join("");
 
   // ---------- cities ----------
@@ -143,104 +142,4 @@
   }, { rootMargin: "-40% 0px -55% 0px" });
   ids.forEach((id) => { const el = document.getElementById(id); if (el) io.observe(el); });
 
-  // ---------- guest picks (Google Form → Sheet CSV) ----------
-  const formBtn = $("#formBtn");
-  if (CFG.FORM_URL) formBtn.href = CFG.FORM_URL;
-  else { formBtn.classList.add("is-disabled"); formBtn.textContent = "投稿フォーム準備中"; }
-
-  const PICK_CITIES = [
-    { id: "longxuyen", name: "ロンスエン", vi: "Long Xuyên" },
-    { id: "cantho", name: "カントー", vi: "Cần Thơ" },
-    { id: "hcmc", name: "ホーチミン", vi: "Hồ Chí Minh" },
-  ];
-  const list = $("#pickList");
-  const filter = $("#pickFilter");
-  let picks = [];
-  let current = "all";
-
-  function parseCSV(text) {
-    const rows = []; let row = []; let f = ""; let q = false;
-    for (let i = 0; i < text.length; i++) {
-      const ch = text[i];
-      if (q) {
-        if (ch === '"') { if (text[i + 1] === '"') { f += '"'; i++; } else q = false; }
-        else f += ch;
-      } else if (ch === '"') q = true;
-      else if (ch === ",") { row.push(f); f = ""; }
-      else if (ch === "\n") { row.push(f); rows.push(row); row = []; f = ""; }
-      else if (ch !== "\r") f += ch;
-    }
-    if (f || row.length) { row.push(f); rows.push(row); }
-    return rows;
-  }
-
-  const findCol = (head, words) => head.findIndex((h) => words.some((w) => h.includes(w)));
-  function cityOf(v) {
-    v = v || "";
-    for (const c of PICK_CITIES) if (v.includes(c.name) || v.toLowerCase().includes(c.vi.toLowerCase())) return c.id;
-    if (/チャウドック|châu đốc/i.test(v)) return "longxuyen";
-    return "other";
-  }
-  function catOf(v) {
-    v = v || "";
-    if (/カフェ|コーヒー/.test(v)) return "cafe";
-    if (/食|飲|レストラン|屋台/.test(v)) return "eat";
-    if (/土産|買/.test(v)) return "shop";
-    if (/観|場所|スポット|体験/.test(v)) return "see";
-    return "";
-  }
-
-  function renderPicks() {
-    const shown = picks.filter((p) => current === "all" || p.city === current);
-    if (!shown.length) {
-      list.innerHTML = `<p class="empty">${picks.length ? "この都市のおすすめはまだありません。" : "まだ投稿はありません。最初のおすすめをぜひ！"}</p>`;
-      return;
-    }
-    list.innerHTML = shown.map((p) => {
-      const isUrl = /^https?:\/\//.test(p.addr);
-      return cardHTML({
-        cat: p.cat, tag: p.cityName, name: p.place, vi: "", desc: p.comment,
-        addr: isUrl ? "" : p.addr, map: isUrl ? p.addr : "", q: [p.place, isUrl ? "" : p.addr, p.cityVi].filter(Boolean).join(" "),
-      }, p.by ? `<p class="by">by ${esc(p.by)}</p>` : "");
-    }).join("");
-  }
-
-  function renderFilter() {
-    const opts = [["all", "すべて"], ...PICK_CITIES.map((c) => [c.id, c.name]), ["other", "その他"]];
-    filter.innerHTML = opts.map(([id, l]) => `<button class="chip${id === current ? " on" : ""}" data-f="${id}" type="button">${l}</button>`).join("");
-  }
-  filter.addEventListener("click", (e) => {
-    const b = e.target.closest(".chip"); if (!b) return;
-    current = b.dataset.f; renderFilter(); renderPicks();
-  });
-
-  async function loadPicks() {
-    renderFilter();
-    if (!CFG.SHEET_CSV_URL) { list.innerHTML = `<p class="empty">投稿の受付はもうすぐ始まります。</p>`; return; }
-    list.innerHTML = `<p class="empty">読み込み中…</p>`;
-    try {
-      const res = await fetch(CFG.SHEET_CSV_URL + (CFG.SHEET_CSV_URL.includes("?") ? "&" : "?") + "t=" + Date.now());
-      const rows = parseCSV(await res.text()).filter((r) => r.some((x) => x.trim()));
-      const head = rows.shift() || [];
-      const col = {
-        by: findCol(head, ["名前", "ニックネーム", "Tên"]),
-        city: findCol(head, ["都市", "エリア", "Thành phố"]),
-        cat: findCol(head, ["ジャンル", "種類"]),
-        place: findCol(head, ["店名", "場所", "スポット"]),
-        addr: findCol(head, ["住所", "マップ", "URL", "Địa chỉ"]),
-        comment: findCol(head, ["おすすめ", "ポイント", "コメント", "ひとこと"]),
-      };
-      const get = (r, k) => (col[k] >= 0 ? (r[col[k]] || "").trim() : "");
-      picks = rows.map((r) => {
-        const city = cityOf(get(r, "city"));
-        const c = PICK_CITIES.find((x) => x.id === city);
-        return { by: get(r, "by"), city, cityName: c ? c.name : (get(r, "city") || "その他"), cityVi: c ? c.vi : "",
-          cat: catOf(get(r, "cat")), place: get(r, "place"), addr: get(r, "addr"), comment: get(r, "comment") };
-      }).filter((p) => p.place).reverse();
-      renderPicks();
-    } catch (err) {
-      list.innerHTML = `<p class="empty">読み込めませんでした。少し時間をおいて再読み込みしてください。</p>`;
-    }
-  }
-  loadPicks();
 })();
