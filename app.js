@@ -1,13 +1,14 @@
 (function () {
   const CFG = window.SITE_CONFIG || {};
-  const CAT = { eat: "🍜 食べる", see: "📍 観る", souvenir: "🎁 お土産" };
+  const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", hotel: "🏨 ホテル" };
+  const CAT_ORDER = Object.keys(CAT);
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const mapUrl = (q) => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
 
   // ---------- tabs ----------
   const tabs = $("#tabs");
-  const tabItems = [...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["picks", "みんなの"], ["tips", "ヒント"]];
+  const tabItems = [["schedule", "日程"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["picks", "みんなの"], ["tips", "ヒント"]];
   tabs.innerHTML = tabItems.map(([id, label]) => `<a href="#${id}" data-id="${id}">${label}</a>`).join("");
 
   // ---------- cities ----------
@@ -29,7 +30,7 @@
   };
 
   $("#cities").innerHTML = window.CITIES.map((c) => {
-    const cats = [...new Set(c.spots.map((s) => s.cat))];
+    const cats = CAT_ORDER.filter((k) => c.spots.some((s) => s.cat === k));
     return `<section class="city" id="${c.id}">
       <div class="city-head"><h2>${c.name}</h2><span class="city-vi" lang="vi">${c.vi}</span></div>
       <p class="city-lead">${esc(c.lead)}</p>
@@ -59,6 +60,9 @@
     <p class="route-path">${esc(r.from)}<b>→</b>${esc(r.to)}</p>
     <div class="route-meta">${[r.how, r.time, r.cost].filter(Boolean).map((x) => `<span>${esc(x)}</span>`).join("")}</div>
     <p>${esc(r.tip)}</p></div>`).join("");
+  $("#schedList").innerHTML = window.SCHEDULE.map((r) => `<li class="${r.main ? "main" : ""}"><span class="s-d">${esc(r.d)}</span><span class="s-t">${esc(r.t)}</span><span class="s-w">${esc(r.what)}${r.where ? `<small>${esc(r.where)}</small>` : ""}</span></li>`).join("");
+  $("#money").innerHTML = window.MONEY.map(([v, j]) => `<div><b lang="vi">${v}</b><span>約${j}</span></div>`).join("");
+  $("#dishList").innerHTML = window.DISHES.map((x) => `<div class="dish"><div class="dish-head"><span class="p-vi" lang="vi">${esc(x.vi)}</span><span class="dish-ja">${esc(x.ja)}</span></div><p>${esc(x.d)}</p><p class="dish-p">${esc(x.p)}</p><button class="link-btn js-driver" type="button" data-name="${esc(x.vi)}" data-addr="" data-hint="eat" data-q="${esc(x.vi)} Long Xuyên">お店の人に見せる</button></div>`).join("");
   $("#tipList").innerHTML = window.TIPS.map((t) => `<div class="tip"><b>${esc(t.t)}</b><p>${esc(t.d)}</p></div>`).join("");
   $("#phraseList").innerHTML = window.PHRASES.map((p) => `<div class="phrase"><div class="p-ja">${esc(p.ja)}</div><div class="p-vi" lang="vi">${esc(p.vi)}</div><div class="p-yomi">${esc(p.yomi)}</div></div>`).join("");
 
@@ -146,8 +150,9 @@
   }
   function catOf(v) {
     v = v || "";
-    if (/食|飲|カフェ|レストラン|屋台/.test(v)) return "eat";
-    if (/土産|買/.test(v)) return "souvenir";
+    if (/カフェ|コーヒー/.test(v)) return "cafe";
+    if (/食|飲|レストラン|屋台/.test(v)) return "eat";
+    if (/土産|買/.test(v)) return "shop";
     if (/観|場所|スポット|体験/.test(v)) return "see";
     return "";
   }
