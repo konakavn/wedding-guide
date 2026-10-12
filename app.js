@@ -7,7 +7,7 @@
 
   // ---------- tabs ----------
   const tabs = $("#tabs");
-  const tabItems = [["schedule", "日程"], ["address", "住所"], ["tips", "ヒント"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"]];
+  const tabItems = [["schedule", "日程"], ["address", "住所"], ["tips", "ヒント"], ...window.CITIES.map((c) => [c.id, c.name]), ["access", "行き方"], ["board", "掲示板"]];
   tabs.innerHTML = tabItems.map(([id, label]) => `<a href="#${id}" data-id="${id}">${label}</a>`).join("");
 
   // ---------- cities ----------
