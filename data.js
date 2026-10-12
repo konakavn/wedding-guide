@@ -3,7 +3,23 @@
 //  追加するときは同じ形で { } を1つ増やすだけ。
 //  vi: ベトナム語の店名（運転手に見せる用）、addr: 住所、q: Googleマップ検索語（省略時は vi + addr）
 // ===========================================================
-window.CITIES = [];  // 各地の観光情報（いったん空にしています）
+window.CITIES = [
+  {
+    id: "longxuyen",
+    name: "ロンスエン",
+    vi: "Long Xuyên",
+    lead: "おすすめのお店です。",
+    note: "",
+    spots: [
+      {
+        cat: "eat", name: "コムタム・バイティン", vi: "Cơm Tấm 7 Tình", addr: "Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/yhBCwCJc9VKd3zj57", tag: "15:00〜23:00",
+        desc: "歩道に机を並べたローカルなコムタム屋台。写真は焼いた豚肉と煮卵のせ。Googleマップに店の情報はないので、「地図」の位置を目印に。\n\nメニュー：Cơm tấm 25K／Cơm sườn 30K／Tấm sườn 30K／Ba rọi（豚バラ）35K／Sườn cọng（骨付きスペアリブ）45K／Cơm gà（鶏）40K\n電話：0948 893 400",
+        photos: ["img/7tinh-1.jpg", "img/7tinh-2.jpg", "img/7tinh-3.jpg"],
+      },
+    ],
+  },
+];
 
 // ===========================================================
 //  住所（式場・ホテル）
@@ -13,7 +29,7 @@ window.VENUE = {
   name: "結婚式会場（チャムの家）",
   vi: "",     // ← ベトナム語の住所表記（運転手に見せる用）を入れる
   addr: "",   // ← 住所を入れる
-  map: "",    // ← Googleマップの共有リンクを入れる
+  map: "https://maps.app.goo.gl/DV5xuP3xNnB84bFt8",
   desc: "ロンスエン市街から車で約40分。式は10/18(日) 早朝から始まります。",
 };
 

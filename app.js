@@ -18,6 +18,7 @@
       <div class="card-top"><span class="cat">${CAT[s.cat] || ""}</span>${s.tag ? `<span class="tag">${esc(s.tag)}</span>` : ""}</div>
       <h3>${esc(s.name)}</h3>
       ${s.vi ? `<p class="vi" lang="vi">${esc(s.vi)}</p>` : ""}
+      ${s.photos ? `<div class="photos">${s.photos.map((src) => `<img src="${esc(src)}" alt="${esc(s.name)}" loading="lazy">`).join("")}</div>` : ""}
       ${extra}
       <p class="desc">${esc(s.desc)}</p>
       ${s.addr ? `<p class="addr" lang="vi">${esc(s.addr)}</p>` : ""}

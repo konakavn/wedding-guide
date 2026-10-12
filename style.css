@@ -142,3 +142,7 @@ main{max-width:960px;margin:0 auto;padding:0 16px}
 .phrase .p-ja{font-size:.78rem;color:var(--muted)}
 .phrase .p-vi{font-size:.95rem}
 .phrase .p-yomi{font-size:.72rem}
+.photos{display:flex;gap:8px;overflow-x:auto;margin:0 -4px 10px;padding:0 4px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.photos::-webkit-scrollbar{display:none}
+.photos img{flex:0 0 72%;max-width:260px;aspect-ratio:3/4;object-fit:cover;border-radius:10px;scroll-snap-align:start}
+.cards>*{min-width:0}
