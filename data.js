@@ -18,6 +18,11 @@ window.CITIES = [
         photos: ["img/7tinh-1.jpg", "img/7tinh-2.jpg", "img/7tinh-3.jpg"],
       },
       {
+        cat: "eat", name: "コムニウ・タムニエン", vi: "Nhà Hàng Cơm Niêu Tâm Nhiên", addr: "110 Đ. Tôn Đức Thắng, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/FcK9V8FXobMe1Yx48", tag: "〜19:30",
+        desc: "土鍋ご飯（コムニウ）と南部の家庭料理のレストラン。おこげが香ばしい土鍋ご飯に、魚の土鍋煮や甘酸っぱいスープを合わせるのが定番。2階に大人数向けの席があり、グループでも入りやすいです。閉店が19:30と早めなので注意。\n\nおすすめ：Canh Chua Cá Hú（魚の甘酸っぱいスープ）／Cá kho tộ（魚の土鍋煮）／Chả Nem\n予算：1人 10万〜20万ドン\n電話：0972 776 474",
+      },
+      {
         cat: "cafe", name: "カラ・ド・カフェ", vi: "CARA De CAFÉ", addr: "39 - 41 Nguyễn Trãi, Long Xuyên, An Giang",
         map: "https://maps.app.goo.gl/991NxnSBKVnrog2a7", tag: "〜22:30",
         desc: "上品で居心地のいい、市の中心部のカフェ。メニューが豊富で、定番のベトナムコーヒー「Cà phê sữa đá」やパンナコッタが人気。",
@@ -51,6 +56,20 @@ window.CITIES = [
         cat: "shop", name: "ヴィンコム・プラザ", vi: "Vincom Plaza Long Xuyên", addr: "1242 Trần Hưng Đạo, Long Xuyên, An Giang",
         map: "https://maps.app.goo.gl/FZYv3tcC6v9oQvCD6", tag: "〜22:00",
         desc: "冷房の効いたショッピングモール。服やコスメ、スーパー（WinMart）、カフェ、映画館（LOTTE Cinema）が入っていて、上の階には韓国料理やジョリビーなどの飲食店も。暑い日の避難場所にも。",
+      },
+    ],
+  },
+  {
+    id: "cantho",
+    name: "カントー",
+    vi: "Cần Thơ",
+    lead: "おすすめのお店です。",
+    note: "",
+    spots: [
+      {
+        cat: "eat", name: "ルアネップ", vi: "Nhà Hàng Lúa Nếp", addr: "Sông Hậu, Cái Khế, Cần Thơ",
+        map: "https://maps.app.goo.gl/5PdQM7JDkrcMXKqVA", tag: "〜22:30",
+        desc: "ハウ川沿いにあるメコン料理の人気レストラン。川を眺めながら南部の郷土料理が楽しめ、「カントーNo.1」との声も。いつも混んでいるので、大人数なら早めの時間がおすすめ。\n\n人気：Bánh Xèo Tây Nam Bộ（南部風バインセオ）／Ốc Bu Nướng Tiêu（巻貝の胡椒焼き）\n予算：1人 10万〜50万ドン\n電話：0973 606 979",
       },
     ],
   },
