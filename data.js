@@ -24,6 +24,20 @@ window.CITIES = [
       },
     ],
   },
+  {
+    id: "hcmc",
+    name: "ホーチミン",
+    vi: "TP. Hồ Chí Minh",
+    lead: "おすすめのお店です。",
+    note: "",
+    spots: [
+      {
+        cat: "eat", name: "フーティウ屋", vi: "Hủ tiếu", addr: "TP. Hồ Chí Minh",
+        map: "https://maps.app.goo.gl/92pDNjzMyuYn4Z5u8", tag: "麺",
+        desc: "南部の米麺フーティウのお店。あっさりした豚骨だしのスープで、朝ごはんにもぴったり。",
+      },
+    ],
+  },
 ];
 
 // ===========================================================
