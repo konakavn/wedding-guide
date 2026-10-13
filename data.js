@@ -32,9 +32,9 @@ window.CITIES = [
     note: "",
     spots: [
       {
-        cat: "eat", name: "フーティウ屋", vi: "Hủ tiếu", addr: "TP. Hồ Chí Minh",
-        map: "https://maps.app.goo.gl/92pDNjzMyuYn4Z5u8", tag: "麺",
-        desc: "南部の米麺フーティウのお店。あっさりした豚骨だしのスープで、朝ごはんにもぴったり。",
+        cat: "eat", name: "フーティウ・ナムヴァン・コーバック", vi: "Hủ Tiếu Nam Vang Đệ Nhất Cô Bắc", addr: "31A Cô Bắc, Cầu Ông Lãnh, TP. Hồ Chí Minh",
+        map: "https://maps.app.goo.gl/92pDNjzMyuYn4Z5u8", tag: "24時間営業",
+        desc: "ローカルに大人気のフーティウ・ナムヴァン（プノンペン風の米麺）の店。1区のベンタイン市場から歩ける距離で、24時間営業なので夜行バスの前後にも。人気はスープありの「Hủ Tiếu Nam Vang」と、汁なしの「Hủ Tiếu Khô」。1人 10万ドン（約600円）以内で食べられます。",
       },
     ],
   },
