@@ -48,6 +48,16 @@ window.CITIES = [
         desc: "旧市街の中心にあるスターバックス。窓からロンスエン大聖堂が見えます。コープマートやヴィンコムにも近く、買い物の合間のひと休みに。",
       },
       {
+        cat: "see", name: "ロンスエン水上マーケット", vi: "Chợ Nổi Long Xuyên", addr: "22 Ngô Thời Nhậm, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/LAHFMucbpv8eztPE9", tag: "注意",
+        desc: "ハウ川に浮かぶロンスエンの水上マーケット。\n\n⚠️ 注意：朝の水上マーケットは現在ほぼやっていません。売り物の船を期待して早起きして行くと、がっかりするかもしれません。川沿いの景色や地元の雰囲気を楽しむつもりで。",
+      },
+      {
+        cat: "souvenir", name: "バインチャン・ザーフン", vi: "Bánh tráng Gia Hưng", addr: "582 Đường 12, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/CZZ7H98a1yXzb4KV6", tag: "うまい！",
+        desc: "ライスペーパー（バインチャン）のお菓子の専門店。味つけや形の違うバインチャンがずらりと並んでいて、どれもおいしいです。おやつにも、ばらまき用のお土産にも。",
+      },
+      {
         cat: "shop", name: "コープマート", vi: "Co.opmart Long Xuyên", addr: "Long Xuyên, An Giang",
         map: "https://maps.app.goo.gl/nJpL57w9DDupxDVX6", tag: "スーパー",
         desc: "広くて綺麗なスーパーマーケット。飲み物やお菓子、ばらまき用のお土産をまとめて買うのに便利。",
