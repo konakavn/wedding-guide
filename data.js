@@ -155,6 +155,11 @@ window.CITIES = [
         map: "https://maps.app.goo.gl/nUog72QUsmtHuvrv6", tag: "うまい！",
         desc: "ライスペーパー（バインチャン）のお菓子の店。甘いのもしょっぱいのも種類が豊富で、どれもおいしくて安い。地元の人がまとめ買いしていく人気店です。おやつにも、ばらまき用のお土産にも。〜22:15。\n\n電話：0933 155 755",
       },
+      {
+        cat: "souvenir", name: "高島屋（ホーチミン）", vi: "Takashimaya", addr: "92-94 Nam Kỳ Khởi Nghĩa, Sài Gòn, TP. Hồ Chí Minh",
+        map: "https://maps.app.goo.gl/7cD346CvvJ18WJoi8", tag: "〜21:30",
+        desc: "お土産を買うならここ。1区の中心にある日系デパートで、地下の食品売り場にはベトナムコーヒーやお菓子、ドライフルーツなど、きれいに包装されたお土産がそろっています。値段が表示されていて交渉いらず、カードも使えるので安心。冷房が効いていて、お手洗いも清潔です。",
+      },
     ],
   },
 ];
@@ -180,7 +185,7 @@ window.HOTELS = [
 
 window.BUS = [
   { name: "FUTA（フォンチャン）ファングーラオ営業所", vi: "FUTA Bus Lines – Văn phòng Phạm Ngũ Lão", addr: "205 Phạm Ngũ Lão, Q.1 (cũ), TP. Hồ Chí Minh", map: "https://maps.app.goo.gl/L7cwWJW3WPkuJad38", tag: "まずはここへ", desc: "1区の旅行者街にあるFUTAの営業所。ここで「ミエンタイ・バスターミナル発 → ロンスエン行き」のチケットが買えます。ここからミエンタイ・バスターミナルまでは無料の送迎バスがあります。ホットライン 1900 6067。" },
-  { name: "ミエンタイ・バスターミナル", vi: "Bến xe Miền Tây", addr: "395 Kinh Dương Vương, An Lạc, Bình Tân, TP. Hồ Chí Minh", map: "", tag: "ここでバスに乗車", desc: "ロンスエン行きのバスが出るターミナル。FUTAバスの乗り場は、ターミナルに入って一番左奥です。乗車後に行き先を聞かれるので、泊まるホテルの名前を伝えてください（上のホテル欄の「運転手に見せる」でホテル名を表示できます）。ロンスエンに着いたら、ホテルまで無料で送ってもらえます。" },
+  { name: "ミエンタイ・バスターミナル", vi: "Bến xe Miền Tây", addr: "395 Kinh Dương Vương, An Lạc, Bình Tân, TP. Hồ Chí Minh", map: "", tag: "ここでバスに乗車", desc: "ロンスエン行きのバスが出るターミナル。FUTAバスの乗り場は、ターミナルに入って一番左奥です。乗車後に行き先を聞かれるので、泊まるホテルの名前を伝えてください（上のホテル欄の「運転手に見せる」でホテル名を表示できます）。ロンスエンに着いたら、ホテルまで無料で送ってもらえます。\n\nロンスエンなどからホーチミンに戻ってきてここで降りた場合、市内へは路線バスもありますが、Grabを呼ぶのが楽です。" },
   { name: "メコ・リムジン（ホーチミン営業所）", vi: "MEKO LIMOUSINE VIETNAM", addr: "189 Đ. Đào Duy Từ, Diên Hồng, Hồ Chí Minh", map: "https://maps.app.goo.gl/QqWnumDXzR4ozK9M8", tag: "ホーチミン → カントー", desc: "カントー行きのリムジンバス（座席がゆったりした小型バス）の会社。ホーチミンからカントーまで約3時間。予約は電話 1900 2030 か mekolimo.com で。" },
   { name: "メコ・リムジン（カントー営業所）", vi: "MEKO LIMOUSINE CẦN THƠ", addr: "1-3 Đ. B18, KDC Hưng Phú, Cần Thơ", map: "https://maps.app.goo.gl/ewvpZFEdeo3qKu4z6", tag: "カントー → ホーチミン", desc: "カントーからホーチミンへ戻るときに。カントー市内なら無料でホテルまで迎えに来てくれます（予約時にホテル名を伝える）。予約は電話 1900 2036 か mekolimo.com で。" },
 ];
