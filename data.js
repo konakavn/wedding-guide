@@ -135,6 +135,26 @@ window.CITIES = [
         map: "https://maps.app.goo.gl/92pDNjzMyuYn4Z5u8", tag: "24時間営業",
         desc: "ローカルに大人気のフーティウ・ナムヴァン（プノンペン風の米麺）の店。1区のベンタイン市場から歩ける距離で、24時間営業なので夜行バスの前後にも。人気はスープありの「Hủ Tiếu Nam Vang」と、汁なしの「Hủ Tiếu Khô」。1人 10万ドン（約600円）以内で食べられます。",
       },
+      {
+        cat: "eat", name: "バインミー・フインホア", vi: "Bánh Mì Huynh Hoa", addr: "26 Lê Thị Riêng, Bến Thành, TP. Hồ Chí Minh",
+        map: "https://maps.app.goo.gl/9f2brb3Lv9B9qaGM8", tag: "〜22:00",
+        desc: "ホーチミンでいちばん有名なバインミー屋。パテ、ハム、チャールア（ベトナムハム）などがぎっしり詰まった、ずっしり重いバインミーが名物。1区のベンタイン市場の近くで、いつも行列ができていますが回転は早いです。持ち帰りして、ホテルやバスの中で食べるのもおすすめ。\n\n予算：1個 10万ドン以内",
+      },
+      {
+        cat: "cafe", name: "サイゴン・コーヒー・ロースタリー", vi: "Saigon Coffee Roastery", addr: "232/13 Võ Thị Sáu, Xuân Hòa, TP. Hồ Chí Minh",
+        map: "https://maps.app.goo.gl/QSKMSWSnRt7Pn1YS8", tag: "7:00〜",
+        desc: "いい豆を使っている自家焙煎のコーヒー屋。ベトナム産やエチオピアなどの豆が選べ、バリスタが丁寧に淹れてくれます。コーヒー好きなら一度は行ってほしいお店。路地の奥にある隠れ家のような雰囲気です。\n\n人気：カプチーノ／フラットホワイト／ココナッツコーヒー\n予算：1人 10万ドン以内",
+      },
+      {
+        cat: "cafe", name: "シン・ヘリテージ", vi: "SHIN Heritage", addr: "27 Lưu Văn Lang, Bến Thành, TP. Hồ Chí Minh",
+        map: "https://maps.app.goo.gl/rYEPKABPEPWf1rft8", tag: "7:30〜",
+        desc: "ベトナム産の上質な豆にこだわったスペシャルティコーヒーの店。ベンタイン市場から歩ける1区の中心にあります。ハンドドリップ（V60）のほか、卵を泡立ててのせたベトナム名物「エッグコーヒー」も人気。\n\n人気：Egg Coffee（エッグコーヒー）／Cà Phê（ベトナムコーヒー）\n予算：1人 10万〜20万ドン",
+      },
+      {
+        cat: "souvenir", name: "バインチャン・ミーハン", vi: "Bánh Tráng Mỹ Hạnh", addr: "6a Ngô Tất Tố, Thạnh Mỹ Tây, TP. Hồ Chí Minh",
+        map: "https://maps.app.goo.gl/nUog72QUsmtHuvrv6", tag: "うまい！",
+        desc: "ライスペーパー（バインチャン）のお菓子の店。甘いのもしょっぱいのも種類が豊富で、どれもおいしくて安い。地元の人がまとめ買いしていく人気店です。おやつにも、ばらまき用のお土産にも。〜22:15。\n\n電話：0933 155 755",
+      },
     ],
   },
 ];
