@@ -81,6 +81,36 @@ window.CITIES = [
         map: "https://maps.app.goo.gl/5PdQM7JDkrcMXKqVA", tag: "〜22:30",
         desc: "ハウ川沿いにあるメコン料理の人気レストラン。川を眺めながら南部の郷土料理が楽しめ、「カントーNo.1」との声も。いつも混んでいるので、大人数なら早めの時間がおすすめ。\n\n人気：Bánh Xèo Tây Nam Bộ（南部風バインセオ）／Ốc Bu Nướng Tiêu（巻貝の胡椒焼き）\n予算：1人 10万〜50万ドン\n電話：0973 606 979",
       },
+      {
+        cat: "eat", name: "ホアスー", vi: "Nhà hàng Hoa Sứ", addr: "KDL Cồn, Cái Khế, Cần Thơ",
+        map: "https://maps.app.goo.gl/bHXJuRqj1ixB6BL49", tag: "〜22:00",
+        desc: "川の中洲にある庭園風の大きなレストラン。池のまわりに東屋の席があり、ニンキウ埠頭の対岸の景色も楽しめます。メコンの郷土料理や海鮮、鍋が豊富で、大人数でもOK。\n\n人気：Ốc Bu Nướng Tiêu（巻貝の胡椒焼き）／Gỏi Bông So Đũa（ソーダーの花のサラダ）\n予算：1人 10万〜60万ドン\n電話：0292 3820 717",
+      },
+      {
+        cat: "eat", name: "コムニウ・クエゴアイ", vi: "Cơm Niêu Quê Ngoại Cần Thơ", addr: "62 Lê Lợi, Cái Khế, Cần Thơ",
+        map: "https://maps.app.goo.gl/AjDcs2mFWWhQv33J8", tag: "〜20:30",
+        desc: "ベトナムの家庭料理が食べられるお店。名物は土鍋ご飯（コムニウ）と魚の土鍋煮。地元の人にも人気で、昼どきは混みます。\n\nおすすめ：Cơm Niêu（土鍋ご飯）／Cá Kho Tộ（魚の土鍋煮）／Canh Chua Cá Hú（魚の甘酸っぱいスープ）\n予算：1人 〜20万ドン\n電話：0919 655 564",
+      },
+      {
+        cat: "eat", name: "バインセオ・バイトイ", vi: "Quán Bánh xèo 7 Tới", addr: "45 Đ. Hoàng Quốc Việt, An Bình, Cần Thơ",
+        map: "https://maps.app.goo.gl/9Nt5FiYKha7kx73L9", tag: "〜22:00",
+        desc: "カントーで有名なバインセオ（ベトナム風お好み焼き）の店。パリパリの生地を野菜で包んで、タレにつけて食べます。アヒル料理も名物。中心部からは少し離れているのでGrabで。\n\n人気：Bánh Xèo（バインセオ）／Vịt Xiêm（アヒル）\n予算：1人 〜10万ドン\n電話：0947 699 743",
+      },
+      {
+        cat: "eat", name: "フーティウ・ナムヴァン・アーダイ", vi: "Hủ tiếu Nam Vang A Đại", addr: "10 Đ. Nguyễn Khuyến, Ninh Kiều, Cần Thơ",
+        map: "https://maps.app.goo.gl/YVBCH9TFc8byTpop8", tag: "16:00〜",
+        desc: "フーティウ・ナムヴァン（プノンペン風の米麺）の専門店。スープが主役で、モツやイカ、エビ、さつま揚げなど具だくさん。夕方16時からの営業です。\n\nおすすめ：Hủ tiếu Nam Vang（大で 6万5千ドンほど）\n予算：1人 〜10万ドン\n電話：0777 702 797",
+      },
+      {
+        cat: "dinner", name: "ビア＆ワイン（フランス料理）", vi: "Beer & Wine Restaurant", addr: "34-36 Đường A4, KDC Hưng Phú, Cần Thơ",
+        map: "https://maps.app.goo.gl/yUcifHs5dCbEHFUz9", tag: "15:00〜",
+        desc: "評価の高いフランス料理のレストラン。ワインが豊富で、ステーキや子羊の赤ワイン煮込みなど本格的な洋食が楽しめます。ちょっと特別な夜のディナーに。予約がおすすめ。\n\n人気：Steak Tenderloin／Bắp Cừu Hầm Rượu Vang（子羊すね肉の赤ワイン煮）\n電話：0907 459 459",
+      },
+      {
+        cat: "see", name: "ニンキウ広場（水上マーケットのボート）", vi: "Quảng trường đi bộ Ninh Kiều", addr: "Đ. Hai Bà Trưng, Ninh Kiều, Cần Thơ",
+        map: "https://maps.app.goo.gl/e5z9xi1PyfEdM2VS9", tag: "ボート受付",
+        desc: "川沿いの広場・散策スポット。カイラン水上マーケット行きのボートは、このあたりで客引きに声をかけられるので、ここでチケットを買えます。料金と出発時間はその場で確認・交渉を。水上マーケットは早朝なので、前日に予約しておくと安心です。\n\n土日の夜（18:30〜22:00ごろ）は歩行者天国になり、屋台やお土産で賑わいます。",
+      },
     ],
   },
   {
@@ -121,6 +151,8 @@ window.HOTELS = [
 window.BUS = [
   { name: "FUTA（フォンチャン）ファングーラオ営業所", vi: "FUTA Bus Lines – Văn phòng Phạm Ngũ Lão", addr: "205 Phạm Ngũ Lão, Q.1 (cũ), TP. Hồ Chí Minh", map: "https://maps.app.goo.gl/L7cwWJW3WPkuJad38", tag: "まずはここへ", desc: "1区の旅行者街にあるFUTAの営業所。ここで「ミエンタイ・バスターミナル発 → ロンスエン行き」のチケットが買えます。ここからミエンタイ・バスターミナルまでは無料の送迎バスがあります。ホットライン 1900 6067。" },
   { name: "ミエンタイ・バスターミナル", vi: "Bến xe Miền Tây", addr: "395 Kinh Dương Vương, An Lạc, Bình Tân, TP. Hồ Chí Minh", map: "", tag: "ここでバスに乗車", desc: "ロンスエン行きのバスが出るターミナル。FUTAバスの乗り場は、ターミナルに入って一番左奥です。乗車後に行き先を聞かれるので、泊まるホテルの名前を伝えてください（上のホテル欄の「運転手に見せる」でホテル名を表示できます）。ロンスエンに着いたら、ホテルまで無料で送ってもらえます。" },
+  { name: "メコ・リムジン（ホーチミン営業所）", vi: "MEKO LIMOUSINE VIETNAM", addr: "189 Đ. Đào Duy Từ, Diên Hồng, Hồ Chí Minh", map: "https://maps.app.goo.gl/QqWnumDXzR4ozK9M8", tag: "ホーチミン → カントー", desc: "カントー行きのリムジンバス（座席がゆったりした小型バス）の会社。ホーチミンからカントーまで約3時間。予約は電話 1900 2030 か mekolimo.com で。" },
+  { name: "メコ・リムジン（カントー営業所）", vi: "MEKO LIMOUSINE CẦN THƠ", addr: "1-3 Đ. B18, KDC Hưng Phú, Cần Thơ", map: "https://maps.app.goo.gl/ewvpZFEdeo3qKu4z6", tag: "カントー → ホーチミン", desc: "カントーからホーチミンへ戻るときに。カントー市内なら無料でホテルまで迎えに来てくれます（予約時にホテル名を伝える）。予約は電話 1900 2036 か mekolimo.com で。" },
 ];
 
 // ===========================================================
@@ -143,6 +175,8 @@ window.ROUTES = [
   { from: "ホーチミン", to: "ロンスエン", how: "長距離バス（Phương Trang など）／車", time: "約5〜6時間", cost: "バス1人 約20〜30万ドン", tip: "① 1区のFUTAファングーラオ営業所でチケットを買う → ② 無料送迎バスでミエンタイ・バスターミナルへ → ③ バスに乗ったら行き先を聞かれるのでホテル名を伝える → ④ ロンスエン到着後、ホテルまで無料送迎。寝台バスなので横になって移動できます。" },
   { from: "ロンスエン", to: "チャウドック", how: "タクシー／バス", time: "約1.5時間", cost: "", tip: "日帰りなら車をチャーターすると楽。" },
   { from: "ホーチミン空港", to: "市内中心部", how: "Grab／109番バス", time: "車で約30〜40分", cost: "", tip: "空港タクシーより配車アプリが明朗会計。109番バスはベンタイン方面へ。国内線は新しいT3ターミナル発着の便が多いので要確認。" },
+  { from: "ホーチミン", to: "カントー", how: "リムジンバス（MEKO LIMOUSINE）", time: "約3時間", cost: "", tip: "ホーチミン営業所（189 Đào Duy Từ）から出発。予約は電話か mekolimo.com で。下の「バス乗り場」に場所があります。" },
+  { from: "カントー", to: "ホーチミン", how: "リムジンバス（MEKO LIMOUSINE）", time: "約3時間", cost: "", tip: "カントー市内のホテルまで無料で迎えに来てくれます。予約のときにホテル名を伝えてください。" },
 ];
 
 // ===========================================================
