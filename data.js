@@ -38,9 +38,19 @@ window.CITIES = [
         desc: "ヨーロッパとアジアが混ざったような内装のアートカフェで、どこを撮っても絵になります。夜は23時まで。イチゴのモクテル「Mocktail Dâu」が人気。",
       },
       {
+        cat: "cafe", name: "スターバックス", vi: "Starbucks Ngô Gia Tự Long Xuyên", addr: "1 Ngô Gia Tự, P. Mỹ Long, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/ukPsk7Ph66PQ6DbXA", tag: "〜22:00",
+        desc: "旧市街の中心にあるスターバックス。窓からロンスエン大聖堂が見えます。コープマートやヴィンコムにも近く、買い物の合間のひと休みに。",
+      },
+      {
         cat: "shop", name: "コープマート", vi: "Co.opmart Long Xuyên", addr: "Long Xuyên, An Giang",
         map: "https://maps.app.goo.gl/nJpL57w9DDupxDVX6", tag: "スーパー",
         desc: "広くて綺麗なスーパーマーケット。飲み物やお菓子、ばらまき用のお土産をまとめて買うのに便利。",
+      },
+      {
+        cat: "shop", name: "ヴィンコム・プラザ", vi: "Vincom Plaza Long Xuyên", addr: "1242 Trần Hưng Đạo, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/FZYv3tcC6v9oQvCD6", tag: "〜22:00",
+        desc: "冷房の効いたショッピングモール。服やコスメ、スーパー（WinMart）、カフェ、映画館（LOTTE Cinema）が入っていて、上の階には韓国料理やジョリビーなどの飲食店も。暑い日の避難場所にも。",
       },
     ],
   },
