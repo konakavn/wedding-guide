@@ -18,6 +18,26 @@ window.CITIES = [
         photos: ["img/7tinh-1.jpg", "img/7tinh-2.jpg", "img/7tinh-3.jpg"],
       },
       {
+        cat: "cafe", name: "カラ・ド・カフェ", vi: "CARA De CAFÉ", addr: "39 - 41 Nguyễn Trãi, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/991NxnSBKVnrog2a7", tag: "〜22:30",
+        desc: "上品で居心地のいい、市の中心部のカフェ。メニューが豊富で、定番のベトナムコーヒー「Cà phê sữa đá」やパンナコッタが人気。",
+      },
+      {
+        cat: "cafe", name: "ミア・マイア", vi: "Mia Maia café & savoury", addr: "3 Lý Thái Tổ, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/tVR8gaH46ddrhKYH8", tag: "〜21:45",
+        desc: "ロンスエンでもセンスのいい、写真映えするおしゃれカフェ。中庭の奥にも席があります。ケーキや、ロンガン入りのパイナップルティー「Trà Nhãn Dứa」がおすすめ。",
+      },
+      {
+        cat: "cafe", name: "メルシー・コーヒー", vi: "Merci Coffee", addr: "C13-03 đường số 12, KĐT Tây Sông Hậu, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/kwXS4JMgHpkZ36tS6", tag: "川の眺め",
+        desc: "ハウ川沿いの新しい住宅エリアにある、広々として開放的なカフェ。涼しくなる夕方は川の景色がきれい。ミルクコーヒーが好評。",
+      },
+      {
+        cat: "cafe", name: "エス・メコン・カフェ", vi: "S’Mekon caffé", addr: "455/6 Thoại Ngọc Hầu, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/tjmnHPnzHfJ29yD2A", tag: "〜23:00",
+        desc: "ヨーロッパとアジアが混ざったような内装のアートカフェで、どこを撮っても絵になります。夜は23時まで。イチゴのモクテル「Mocktail Dâu」が人気。",
+      },
+      {
         cat: "shop", name: "コープマート", vi: "Co.opmart Long Xuyên", addr: "Long Xuyên, An Giang",
         map: "https://maps.app.goo.gl/nJpL57w9DDupxDVX6", tag: "スーパー",
         desc: "広くて綺麗なスーパーマーケット。飲み物やお菓子、ばらまき用のお土産をまとめて買うのに便利。",
