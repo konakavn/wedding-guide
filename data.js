@@ -53,6 +53,11 @@ window.CITIES = [
         desc: "ベトナムでいちばん有名なカフェチェーン。迷ったらここ。定番は練乳入りのアイスコーヒー「Phin Sữa Đá」と、お茶の上にクリームとゼリーがのった「Trà Sen Vàng」。冷房が効いていて、ひと休みにぴったり。",
       },
       {
+        cat: "see", name: "ロンスエン市場", vi: "Chợ Long Xuyên", addr: "Số 02 Nguyễn Trãi, P. Long Xuyên, An Giang",
+        map: "", tag: "地元の市場", photos: ["img/cho-longxuyen-1.jpg"],
+        desc: "街の中心にある、地元の人の台所の大きな市場。赤い「CHỢ LONG XUYÊN」の看板が目印です。中には食料品や日用品、布、雑貨などのお店がぎっしり。まわりの通りにも露店が並び、ローカルの雰囲気を味わえます。川沿いの水上マーケット（下）もすぐ近く。",
+      },
+      {
         cat: "see", name: "ロンスエン水上マーケット", vi: "Chợ Nổi Long Xuyên", addr: "22 Ngô Thời Nhậm, Long Xuyên, An Giang",
         map: "https://maps.app.goo.gl/LAHFMucbpv8eztPE9", tag: "注意",
         desc: "ハウ川に浮かぶロンスエンの水上マーケット。\n\n⚠️ 注意：朝の水上マーケットは現在ほぼやっていません。売り物の船を期待して早起きして行くと、がっかりするかもしれません。川沿いの景色や地元の雰囲気を楽しむつもりで。",
