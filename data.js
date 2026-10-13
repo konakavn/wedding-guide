@@ -48,8 +48,8 @@ window.CITIES = [
         desc: "旧市街の中心にあるスターバックス。窓からロンスエン大聖堂が見えます。コープマートやヴィンコムにも近く、買い物の合間のひと休みに。",
       },
       {
-        cat: "cafe", name: "ハイランズコーヒー", vi: "Highlands Coffee Long Xuyên", addr: "Long Xuyên, An Giang",
-        map: "https://maps.app.goo.gl/2FqLxAjqPY3J45xY7", tag: "定番チェーン",
+        cat: "cafe", name: "ハイランズコーヒー", vi: "Highlands Coffee 316 Trần Hưng Đạo", addr: "316 Trần Hưng Đạo, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/2FqLxAjqPY3J45xY7", tag: "〜23:00",
         desc: "ベトナムでいちばん有名なカフェチェーン。迷ったらここ。定番は練乳入りのアイスコーヒー「Phin Sữa Đá」と、お茶の上にクリームとゼリーがのった「Trà Sen Vàng」。冷房が効いていて、ひと休みにぴったり。",
       },
       {
