@@ -58,6 +58,16 @@ window.CITIES = [
         desc: "フルーツ好きにおすすめ。南国フルーツを使ったフレッシュジュースの店で、果物の味がしっかりしていて手頃な値段。持ち帰りが中心なので、買ってホテルで飲んだり、散歩しながら飲んだりするのにちょうどいいです。\n\n予算：1杯 10万ドン以内\n電話：0932 932 982",
       },
       {
+        cat: "cafe", name: "ハンモックカフェ・イェンニー", vi: "Cà Phê Võng Long Xuyên Yến Nhi", addr: "820/02 Nguyễn Hoàng, Tây Khánh 2, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/Hkk8nGm1LDmYZAK66", tag: "〜22:00",
+        desc: "メコンらしいハンモックカフェ（Cà phê võng）。ずらりと吊るされたハンモックに揺られながら、ベトナムコーヒーでのんびりできます。冷たいおしぼりのサービスつき。南部ならではのローカルな過ごし方を体験したい方に。",
+      },
+      {
+        cat: "relax", name: "フットマッサージ・セブン", vi: "Massage Foot Seven Sài Gòn - Long Xuyên", addr: "27 Hai Bà Trưng, Long Xuyên, An Giang",
+        map: "https://maps.app.goo.gl/EkCKWWTcpBvKBfWh9", tag: "〜23:30",
+        desc: "ロンスエン中心部のマッサージ店。移動の疲れをとるのにおすすめ。夜遅くまで開いています。\n\nチップ：よければ10万ドン程度（チップ用紙に記入する形式）\n電話：0931 059 399",
+      },
+      {
         cat: "see", name: "ロンスエン市場", vi: "Chợ Long Xuyên", addr: "Số 02 Nguyễn Trãi, P. Long Xuyên, An Giang",
         map: "", tag: "地元の市場", photos: ["img/cho-longxuyen-1.jpg"],
         desc: "街の中心にある、地元の人の台所の大きな市場。赤い「CHỢ LONG XUYÊN」の看板が目印です。中には食料品や日用品、布、雑貨などのお店がぎっしり。まわりの通りにも露店が並び、ローカルの雰囲気を味わえます。川沿いの水上マーケットもすぐ近くです。",

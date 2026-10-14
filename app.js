@@ -1,5 +1,5 @@
 (function () {
-  const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", hotel: "🏨 ホテル", venue: "💒 式場", bus: "🚌 バス" };
+  const CAT = { eat: "🍜 食べる", dinner: "🍲 鍋・夕食", cafe: "☕ カフェ", see: "📍 観る", shop: "🛍 買い物", souvenir: "🎁 お土産", relax: "💆 マッサージ", hotel: "🏨 ホテル", venue: "💒 式場", bus: "🚌 バス" };
   const CAT_ORDER = Object.keys(CAT);
   const $ = (s, r = document) => r.querySelector(s);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
