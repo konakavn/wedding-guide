@@ -96,7 +96,7 @@ main{max-width:960px;margin:0 auto;padding:0 16px}
 @media (min-width:680px){.tips{grid-template-columns:1fr 1fr}}
 .tip{background:var(--card);border-left:4px solid var(--gold);border-radius:8px;padding:12px 16px}
 .tip b{display:block;margin-bottom:2px}
-.tip p{margin:0;font-size:.92rem;color:#3a4640}
+.tip p{white-space:pre-line;margin:0;font-size:.92rem;color:#3a4640}
 .phrases{display:grid;grid-template-columns:1fr;gap:8px}
 @media (min-width:680px){.phrases{grid-template-columns:1fr 1fr 1fr}}
 .phrase{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
